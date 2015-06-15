@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tr, th {
+    background: azure;
+    border: 1px solid black;
+}
+
+table tr:nth-child(odd) {
+    background: lightgray;
+}
+
+table tr:nth-last-child(even) {
+    background: white;
+}
