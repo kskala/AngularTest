@@ -1,32 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Angular test</title>
-    <script type="text/javascript" src="angular/angular.min.js"></script>
-    <script type="text/javascript" src="angular/angular-resource.js"></script>
-    <script type="text/javascript" src="js/app_config.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <link rel="stylesheet" href="css/main.css"/>
-</head>
-<body ng-app="testAngularDetailModule">
-    <div ng-controller="detailController">
-        <table>
-            <caption>Record detail</caption>
-            <tr>
-                <th>NAME</th>
-                <th>VALUE</th>
-            </tr>
-            <tr>
-                <td>ID</td><td>{{person.personId}}</td>
-                <td>Name</td><td>{{person.personName}}</td>
-                <td>Birthdate</td><td>{{person.personBirthdate}}</td>
-                <td>Description</td><td>{{person.personDescr}}</td>
-                <td>Register Date</td><td>{{person.datAdd}}</td>
-            </tr>
-        </table>
-    </div>
-</body>
-</html>
+<table class="detail">
+    <a href="#/">Back</a>
+    <caption>Record detail</caption>
+    <tr>
+        <th>NAME</th>
+        <th>VALUE</th>
+    </tr>
+    <tr>
+        <td>ID</td><td>{{person.personId}}</td>
+    </tr>
+    <tr>
+        <td>Name</td><td>{{person.personName}}</td>
+    </tr>
+    <tr>
+        <td>Birthdate</td><td>{{person.personBirthdate}}</td>
+    </tr>
+        <td>Description</td><td>{{person.personDescr}}</td>
+    <tr>
+        <td>Register Date</td><td>{{person.datAdd}}</td>
+    </tr>
+</table>

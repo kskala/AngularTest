@@ -7,30 +7,13 @@
     <title>Angular Test</title>
     <script type="text/javascript" src="angular/angular.min.js"></script>
     <script type="text/javascript" src="angular/angular-resource.js"></script>
+    <script type="text/javascript" src="angular/angular-route.min.js"></script>
     <script type="text/javascript" src="js/app_config.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body ng-app="testAngularModule">
-    <div ng-controller="mainController">
-        <button ng-click="loadPage()">Reload</button>
-        <table><caption>List View</caption>
-            <tr>
-                <th>ID</th>
-                <th>Person Name</th>
-                <th>Birthdate</th>
-                <th>Description</th>
-                <th>Register date</th>
-            </tr>
-            <tr ng-repeat="person in persons"><a href="detail.html">
-                <td>{{person.personId}}</td>
-                <td>{{person.personName}}</td>
-                <td>{{person.personBirthdate}}</td>
-                <td>{{person.personDescr}}</td>
-                <td>{{person.datAdd}}</td>
-                </a>
-            </tr>
-        </table>
+    <div ng-view>
     </div>
 </body>
 </html>

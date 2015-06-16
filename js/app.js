@@ -3,31 +3,42 @@
  */
 var app;
 
-app = angular.module('testAngularModule', ['ngResource']).
+app = angular.module('testAngularModule', ['ngResource', 'ngRoute']).
     factory('restService', ['$resource', function ($resource) {
         console.log(configData);
 
         var url = configData.isDevelopment ? configData.developmentURL : configData.productionURL;
         return $resource(url + 'persons/:id', {id:'@id'}, {
-            query: {method: 'GET'},
+            query: {method: 'GET', isArray: true},
             get: {method: 'GET', params: 'id'}
         });
     }]);
 
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl:'list.html',
+        controller:'mainController'
+    }).when('/:id', {
+        templateUrl:'detail.html',
+        controller:'detailController'
+    }).otherwise({
+       redirectTo:'/'
+    });
+}]);
+
 app.controller('mainController', ['$scope', 'restService', function($scope, restService) {
-    $scope.selectedId = 0;
     $scope.loadPage = function() {
         $scope.persons = restService.query();
         console.log('RESULT: ' + $scope.persons);
-    }
+    };
 
     $scope.loadPage();
 }]);
 
-angular.module('testAngularDetailModule', ['testAngularModule', 'ngResource']).controller('detailController',
-    ['$scope', 'restService', function($scope, restService) {
-    restService.get($scope.selectedId, function(data) {
+app.controller('detailController', ['$scope', '$routeParams', 'restService', function($scope, $routeParams, restService) {
+    restService.get({id:$routeParams.id}, function(data) {
         $scope.person = data;
         console.log('RESULT:' + $scope.person);
     });
 }]);
+

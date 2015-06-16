@@ -1,4 +1,4 @@
-table {
+table.list {
     width: 100%;
     border-collapse: collapse;
 }
@@ -14,4 +14,9 @@ table tr:nth-child(odd) {
 
 table tr:nth-last-child(even) {
     background: white;
+}
+
+table.detail {
+    border-collapse: collapse;
+    width: 30%;
 }
